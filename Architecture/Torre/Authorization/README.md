@@ -1,5 +1,5 @@
 
-# Authorização
+# Authorization
 
 ## User
 O `User` que será o usuário logado, poderá possuir uma ou várias roles
