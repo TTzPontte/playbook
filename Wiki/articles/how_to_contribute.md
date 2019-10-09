@@ -4,7 +4,7 @@ Clone this repo and create a new branch named with the article you want to add:
 
 ```
 git clone git@github.com:pontte/playbook.git
-git co -b wiki-topic
+git checkout -b wiki-topic
 touch wiki/articles/how_to_xxx.md
 ```
 
