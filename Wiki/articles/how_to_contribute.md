@@ -28,7 +28,7 @@ Add the article to the wiki's index:
 # Wiki
 <!-- [...] -->
 
-[How to ...?](https://github.com/pontte/playbook/tree/master/wiki/articles/how_to_xxx.md)
+[How to ...?](https://github.com/pontte/playbook/blob/master/Wiki/articles/how_to_xxx.md)
 ```
 
 Then go on and create a Pull Request, someone from Pontte's engineering team will review it :ok_hand: :pray:
