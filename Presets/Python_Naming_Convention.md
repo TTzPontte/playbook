@@ -23,7 +23,7 @@ CapWords
 ## Function and Variable Names
 
 lower_with_under()
-  Function names should be lowercase, with words separated by underscores as necessary to improve readability.
+> Function names should be lowercase, with words separated by underscores as necessary to improve readability.
 
 ## Convention Naming Reference table
 
