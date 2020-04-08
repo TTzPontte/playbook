@@ -1,0 +1,109 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  dynamo-ttl-scheduler
+
+  Sample SAM Template for dynamo-ttl-scheduler
+
+Globals:
+  Function:
+    Timeout: 150
+    Environment:
+      Variables:
+        TABLE_NAME: scheduled_items
+        RESULT_TABLE_NAME: scheduled_item_results
+
+Resources:
+  NotificationFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: notification/
+      Handler: schedule.handler
+      Runtime: nodejs12.x
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref ScheduledItems
+        - DynamoDBCrudPolicy:
+            TableName: !Ref ScheduledItemsResults
+      Events:
+        HelloWorld:
+          Type: Api
+          Properties:
+            Path: /
+            Method: POST
+
+  DeleteNotificationFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: notification/
+      Handler: delete.handler
+      Runtime: nodejs12.x
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref ScheduledItems
+        - DynamoDBCrudPolicy:
+            TableName: !Ref ScheduledItemsResults
+      Events:
+        HelloWorld:
+          Type: Api
+          Properties:
+            Path: /
+            Method: DELETE
+
+  NotificationStreamFunction:
+    Type: "AWS::Serverless::Function"
+    Properties:
+      Description: handle schedule stream
+      CodeUri: notification/
+      Handler: stream.handler
+      Runtime: nodejs12.x
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref ScheduledItems
+        - DynamoDBCrudPolicy:
+            TableName: !Ref ScheduledItemsResults
+      Events:
+        DBSimulation:
+          Type: DynamoDB
+          Properties:
+            Stream: !GetAtt ScheduledItems.StreamArn
+            StartingPosition: TRIM_HORIZON
+            BatchSize: 100
+
+  ScheduledItems:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: scheduled_items
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+        - AttributeName: expired_timestamp
+          AttributeType: N
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      GlobalSecondaryIndexes:
+        - IndexName: ExpiredTime
+          KeySchema:
+            - AttributeName: expired_timestamp
+              KeyType: HASH
+          Projection:
+            ProjectionType: ALL
+      StreamSpecification:
+        StreamViewType: NEW_AND_OLD_IMAGES
+      TimeToLiveSpecification:
+        Enabled: true
+        AttributeName: ttl
+
+  ScheduledItemsResults:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: scheduled_item_results
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
