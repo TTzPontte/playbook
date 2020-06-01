@@ -1,4 +1,4 @@
-# Mapeamento de todas as funções lamdas e tabelas do DynamoDB da torre de controle e do site
+# Mapeamento de todas as funções lamdas e Tables do DynamoDB da torre de controle e do site
 
 # Table of Contents
 
@@ -48,6 +48,8 @@
 
 # Torre de Controle {#torredecontrole}
 
+- **Lambdas**: 50
+
 # Lambdas {#lambdastc}
 
 ---
@@ -56,12 +58,12 @@
 
 ---
 
-#### Receiver
+### Receiver
 
-- **Nome**: ReceiverAuditLog-{Environment}
-- **Descrição**: Função que coleta todas os dados no SQS e salva no banco de dados
+- **Name**: ReceiverAuditLog-{Environment}
+- **Description**: Função que coleta todas os dados no SQS e salva no banco de dados
 - **Handler:** receiver
-- **Tabelas**: AuditLog
+- **Tables**: AuditLog
 
 ---
 
@@ -69,23 +71,23 @@
 
 ---
 
-#### PreRegister
+### PreRegister
 
-- **Nome**: PreRegister-{Project}-{Environment}
-- **Descrição**: Valida os campos enviados para o cadastro
+- **Name**: PreRegister-{Project}-{Environment}
+- **Description**: Valida os campos enviados para o cadastro
 - **Handler**: preRegister
 
-#### PosRegister
+### PosRegister
 
-- **Nome**: PosRegister-{Project}-{Environment}
-- **Descrição**: Responsavel por criar um novo usuário no dynamodb e atualizar o usuário no cognito com o uid
+- **Name**: PosRegister-{Project}-{Environment}
+- **Description**: Responsavel por criar um novo usuário no dynamodb e atualizar o usuário no cognito com o uid
 - **Handler**: preRegister
 - **Tables**: users
 
-#### PosLogin
+### PosLogin
 
-- **Nome**: PosLogin-{Project}-{Environment}
-- **Descrição**: Valida os campos enviados para o login
+- **Name**: PosLogin-{Project}-{Environment}
+- **Description**: Valida os campos enviados para o login
 - **Handler**: posLogin
 
 ---
@@ -96,8 +98,8 @@
 
 ### ContractGetAll
 
-- **Nome**: ContractGetAll-{Environment}
-- **Descrição**: Listagem de todos os contratos
+- **Name**: ContractGetAll-{Environment}
+- **Description**: Listagem de todos os contratos
 - **Handler**: getAll
 - **tables**: ContractsReport, People, users, users-roles
 - **endPoint**: `/v1`
@@ -105,8 +107,8 @@
 
 ### ContractGet
 
-- **Nome**: ContractGet-{Environment}
-- **Descrição**: Recuperar dados de um contrato pelo id
+- **Name**: ContractGet-{Environment}
+- **Description**: Recuperar dados de um contrato pelo id
 - **Handler**: get
 - **tables**: Contract, People, Property, Upload, Simulations, ContractsReport, users, users-roles
 - **endPoint**: `/v1/{id}`
@@ -114,7 +116,7 @@
 
 ### UploadFileContract
 
-- **Nome**: UploadFileContract-{Environment}
+- **Name**: UploadFileContract-{Environment}
 - **Descripion**: Responsável por fazer o upload de arquivos
 - **Handler**: uploads/upload
 - **tables**: Contract, Property, ContractsReport, Upload, User, People, users, users-roles
@@ -124,7 +126,7 @@
 
 ### DeleteUploadFileContract
 
-- **Nome**: DeleteUploadFileContract-{Environment}
+- **Name**: DeleteUploadFileContract-{Environment}
 - **Descripion**: Deleta arquivos do contrato
 - **Handler**: uploads/delete
 - **tables**: Contract, Property, ContractsReport, Upload, User, People, users, users-roles
@@ -134,7 +136,7 @@
 
 ### DownloadFileContract
 
-- **Nome**: DownloadFileContractFn-{Environment}
+- **Name**: DownloadFileContractFn-{Environment}
 - **Descripion**: baixa todos os arquivos do contrato
 - **Handler**: download
 - **tables**: Contract, Property, ContractsReport, Upload, People, users, users-roles
@@ -142,9 +144,19 @@
 - **endPoint**: `/v1/{id}/download`
 - **Method**: GET
 
+### DownloadPropertyFilesFn
+
+- **Name**: DownloadPropertyFilesFn-{Environment}
+- **Descripion**: Download all files from property
+- **Handler**: downloads/downloadReports
+- **tables**: Contract, Property, ContractsReport, Upload, People, users, users-roles
+- **lambdas**: Pontte-PropertiesPhotosInsert, Pontte-PropertiesDocumentsInsert, Pontte-PeopleDocumentsInsert
+- **endPoint**: `/v1/{id}/downloadReports`
+- **Method**: GET
+
 ### ContractCommentGet
 
-- **Nome**: ContractCommentGetFn-{Environment}
+- **Name**: ContractCommentGetFn-{Environment}
 - **Descripion**: Responsável por acessar os comentários de um contrato
 - **Handler**: comments/get
 - **tables**: ContractComments, Contract, users, users-roles
@@ -153,34 +165,97 @@
 
 ### ContractCommentSave
 
-- **Nome**: ContractCommentSave-{Environment}
+- **Name**: ContractCommentSave-{Environment}
 - **Descripion**: Responsável por salvar os comentários de um contrato
 - **Handler**: comments/save
 - **tables**: ContractComments, Contract, users, users-roles
 - **endPoint**: `/v1/{id}/comment`
 - **Method**: POST
 
+### ContractCommentDeleteFn
+
+- **Name**: ContractCommentDeleteFn-{Environment}
+- **Descripion**: Delete contracts comments handler
+- **Handler**: comments/delete
+- **tables**: ContractComments, Contract, users, users-roles
+- **endPoint**: `/v1/comment/{id}`
+- **Method**: DELETE
+
+### ContractCommentEditFn
+
+- **Name**: ContractCommentEditFn-{Environment}
+- **Descripion**:Edit contracts comments handler
+- **Handler**: comments/edit
+- **tables**: ContractComments, Contract, users, users-roles
+- **endPoint**: `/v1/comment/{id}`
+- **Method**: PUT
+
 ### ContractOperationSaveFn
 
-- **Nome**: ContractCommentSave-{Environment}
+- **Name**: ContractCommentSave-{Environment}
 - **Descripion**: Responsável por salvar as operações de um contrato
 - **Handler**: operations/save
-- **tables**: ContractsReport, Contract, users, users-roles
+- **tables**: ContractsReport, Contract, users, users-roles, People, Property, Upload
 - **endPoint**: `/v1/{id}/operation`
+- **Method**: POST
+
+### ContractOperationUpdateStatusFn
+
+- **Name**: ContractOperationUpdateStatusFn-{Environment}
+- **Descripion**: Update contracts operations status
+- **Handler**: operations/status
+- **tables**: ContractsReport, Contract, users, users-roles, People, Property, Upload
+- **endPoint**: `/v1/{id}/operation/{operationId}/status`
+- **Method**: POST
+
+### ContractFormalizationGetFn
+
+- **Name**: ContractFormalizationGetFn-{Environment}
+- **Descripion**: Get contracts formalization handler
+- **Handler**: formalization/get
+- **tables**: AuditLog
+- **endPoint**: `/v1/{id}/formalization`
+- **Method**: GET
+
+### ContractFormalizationSaveFn
+
+- **Name**: ContractFormalizationSaveFn-{Environment}
+- **Descripion**: Save contracts formalization handler
+- **Handler**: formalization/save
+- **tables**: ContractsReport, AuditLog, Contract, People, Property, Rgi, ContractAztronic
+- **endPoint**: `/v1/{id}/formalization`
+- **Method**: POST
+
+### ContractLegalGetFn
+
+- **Name**: ContractLegalGetFn-{Environment}
+- **Descripion**: Get contract`s people legal handler
+- **Handler**: legal/get
+- **tables**: Contract, People, Upload, IdWallReport
+- **endPoint**: `/v1/{id}/legal`
 - **Method**: POST
 
 ### StatusContractUpdate
 
-- **Nome**: StatusContractUpdateFn-{Environment}
+- **Name**: StatusContractUpdateFn-{Environment}
 - **Descripion**: Responsável por salvar as operações de um contrato
 - **Handler**: status/update
 - **tables**: StatusContract, ContractsReport, Contract, People, Upload, users, users-roles
 - **endPoint**: `/v1/{id}/status`
 - **Method**: POST
 
+### ReturnToStatusContractFn
+
+- **Name**: ReturnToStatusContractFn-{Environment}
+- **Descripion**: Updates to the last status from a contract
+- **Handler**: status/returnToStatus
+- **tables**: StatusContract, ContractsReport, People, users, users-roles
+- **endPoint**: `/v1/{id}/status/return`
+- **Method**: POST
+
 ### StatusLabelGetAll
 
-- **Nome**: StatusLabelGetAllFn-{Environment}
+- **Name**: StatusLabelGetAllFn-{Environment}
 - **Descripion**: Listagem de todos os status de contrato
 - **Handler**: getAllStatusLabel
 - **tables**: StatusContract, users, users-roles
@@ -189,7 +264,7 @@
 
 ### ActiveContract
 
-- **Nome**: ActiveContractFn-{Environment}
+- **Name**: ActiveContractFn-{Environment}
 - **Descripion**: Responsável por marcar o contrato como em espera ou ativo
 - **Handler**: activeContract
 - **tables**: ContractsReport, users, users-roles
@@ -198,7 +273,7 @@
 
 ### ContractContactTypeGet
 
-- **Nome**: ContractContactTypeGetFn-{Environment}
+- **Name**: ContractContactTypeGetFn-{Environment}
 - **Descripion**: Acessa todos os tipos de contatos em contratos
 - **Handler**: getAllContactTypes
 - **tables**: ContractsReport, users, users-roles
@@ -207,7 +282,7 @@
 
 ### ContractContactTypeUpdate
 
-- **Nome**: ContractContactTypeUpdateFn-{Environment}
+- **Name**: ContractContactTypeUpdateFn-{Environment}
 - **Descripion**: Atualiza o tipo de contratos
 - **Handler**: getAllContactTypes
 - **tables**: ContractsReport, users, users-roles
@@ -216,25 +291,138 @@
 
 ### ContractStatusReport
 
-- **Nome**: ContractStatusReportFn-{Environment}
+- **Name**: ContractStatusReportFn-{Environment}
 - **Descripion**: Mostra uma lista com todos os status de contratos e a quantidade de cada etapa
 - **Handler**: reports/statusReport
 - **tables**: ContractsReport,StatusContract, users, users-roles
 - **endPoint**: `/v1/reports/statusContract`
 - **Method**: GET
 
+### ContractCalculatoFn
+
+- **Name**: ContractCalculatoFn-{Environment}
+- **Descripion**: Loan Calculator
+- **Handler**: calculator
+- **tables**: AuditLog, users, users-roles
+- **endPoint**: `/v1/reports/calculator`
+- **Invoke**: SimulatorCalculatorFn
+- **Method**: POST
+
+### ContractSetAttendantFn
+
+- **Name**: ContractSetAttendantFn-{Environment}
+- **Descripion**: Set the contract attendant
+- **Handler**: calculator
+- **tables**: AuditLog, users, users-roles, ContractsReport
+- **endPoint**: `/v1/setAttendant`
+- **Method**: PUT
+
 ### DBContractStream
 
-- **Nome**: DBContractStream-{Environment}
+- **Name**: DBContractStream-{Environment}
 - **Descripion**: Coletar todos os dados inseridos na table de contrato
 - **Handler**: stream
 - **tables**: ContractsReport
 
 ### DBContractReportStream
 
-- **Nome**: DBContractReportStream-{Environment}
+- **Name**: DBContractReportStream-{Environment}
 - **Descripion**: Coletar todos os dados inseridos no elastsearch
 - **Handler**: es_stream
+
+---
+
+## Financing {#financing}
+
+---
+
+### FinancingGetAllFn
+
+- **Name**: FinancingGetAllFn-{Environment}
+- **Descripion**: Recuperar a lista com todos financiamentos
+- **Handler**: getAll
+- **tables**: AuditLog, users, users-roles, Financing
+- **endPoint**: `/v1`
+- **Method**: GET
+
+### FinancingGetFn
+
+- **Name**: FinancingGet-{Environment}
+- **Descripion**: Recuperar dados de um financiamento pelo id
+- **Handler**: get
+- **tables**: AuditLog, users, users-roles, Financing, Upload
+- **endPoint**: `/v1/{id}`
+- **Method**: GET
+
+---
+
+## IdWall {#idwall}
+
+---
+
+### CreateReportIdWallFn
+
+- **Name**: CreateReportIdWallFn-{Environment}
+- **Descripion**: Criar report no idWall
+- **Handler**: createReport
+- **tables**: AuditLog, users, users-roles, DbIdWallReport, People
+- **endPoint**: `/v1`
+- **Method**: POST
+
+### UpdateStatusIdWallFn
+
+- **Name**: UpdateStatusIdWallFn-{Environment}
+- **Descripion**: Atualiza o status do idWall
+- **Handler**: updateStatus
+- **tables**: AuditLog, users, users-roles, DbIdWallReport, People
+- **endPoint**: `/status`
+- **Method**: POST
+
+### GetAllInfosIdWallFn
+
+- **Name**: GetAllInfosIdWallFn-{Environment}
+- **Descripion**: Recupera todas as informações de uma pessoa
+- **Handler**: getAll
+- **tables**: AuditLog, users, users-roles, DbIdWallReport
+- **endPoint**: `/v1/{type}/{id}/infos`
+- **Method**: POST
+
+---
+
+## QiTech {#qitech}
+
+---
+
+### EscrowFn
+
+- **Name**: EscrowFn-{Environment}
+- **Descripion**: Collect data with SQS and save in database
+- **Handler**: receiver
+- **Event**: SQS
+
+### QiTechReceiverAuditLogFn
+
+- **Name**: QiTechReceiverAuditLogFn-{Environment}
+- **Descripion**: Function to handle the creation of account in QI Tech
+- **Handler**: escrow
+- **tables**: AuditLog, users, users-roles, QiTechDbAuditLog, Contract, People, Property, Upload, Simulations, ContractsReport
+- **endPoint**: `/escrow`
+- **Method**: GET
+
+---
+
+## Rgi {#rgi}
+
+### RgiGetAllFn
+
+- **Name**: RgiGetAllFn-{Environment}
+- **Descripion**: Get a list of all Rgi
+- **Handler**: escrow
+- **tables**: AuditLog, users, users-roles
+- **endPoint**: `/v1`
+- **Method**: GET
+
+---
 
 ---
 
@@ -244,7 +432,7 @@
 
 ### SimulationGetAll
 
-- **Nome**: SimulationGetAll-{Environment}
+- **Name**: SimulationGetAll-{Environment}
 - **Descripion**: Listagem de todos as simulações
 - **Handler**: getAll
 - **tables**: Simulations, users, users-role
@@ -253,7 +441,7 @@
 
 ### SimulationSource
 
-- **Nome**: e-{Environment}
+- **Name**: e-{Environment}
 - **Descripion**: Mostra uma lista com todas os parceiros e quantidades
 - **Handler**: source
 - **tables**: Simulations, users, users-role
@@ -262,7 +450,7 @@
 
 ### GetAllSources
 
-- **Nome**: GetAllSources-{Environment}
+- **Name**: GetAllSources-{Environment}
 - **Descripion**: Mostra uma lista com todas os parceiros
 - **Handler**: getAllSources
 - **tables**: users, users-role
@@ -271,16 +459,16 @@
 
 ### SimulationAttendents
 
-- **Nome**: SimulationAttendentsFn-{Environment}
+- **Name**: SimulationAttendentsFn-{Environment}
 - **Descripion**: Salva o atendende da simulação
 - **Handler**: saveAttendant
 - **tables**: Simulations, SimulationsReport, users, users-role
 - **endPoint**: `/v1/{trackCode}/attendant`
 - **Method**: POST
 
-## SimulationReportStream
+### SimulationReportStream
 
-- **Nome**: SimulationReportStreamFn-{Environment}
+- **Name**: SimulationReportStreamFn-{Environment}
 - **Descripion**: Recebe dados do SimulationsReport e envia para o elastisearch
 - **Handler**: stream
 
@@ -292,7 +480,7 @@
 
 ### UploadsGet
 
-- **Nome**: UploadsGet-{Environment}
+- **Name**: UploadsGet-{Environment}
 - **Descripion**: Permissão para fazer uploads
 - **Handler**: get
 - **tables**: Upload, users, users-role
@@ -307,7 +495,7 @@
 
 ### TorreUsersGetPolicies
 
-- **Nome**: TorreUsersGetPolicies-{Environment}
+- **Name**: TorreUsersGetPolicies-{Environment}
 - **Descripion**: Recebe uma lista com as permissões do usuário logado
 - **Handler**: getPolicies
 - **tables**: users, users-role
@@ -316,7 +504,7 @@
 
 ### TorreUsersGetRoles
 
-- **Nome**: TorreUsersGetRoles-{Environment}
+- **Name**: TorreUsersGetRoles-{Environment}
 - **Descripion**: Recebe uma lista com todas as posições com as permissões do usuário logado
 - **Handler**: getRoles
 - **tables**: users, users-role
@@ -329,7 +517,7 @@
 
 ### Contracts {#contractsdb}
 
-- **Nome**: Contract.{Environment}
+- **Name**: Contract.{Environment}
 - **Atributos**:
 
 |       Name       |  Type  |
@@ -345,7 +533,7 @@
 
 ### Simulations {#simulationsdb}
 
-- **Nome**: Simulations.{Environment}
+- **Name**: Simulations.{Environment}
 - **Atributos**:
 
 |          Name          |  Type  |
@@ -371,7 +559,7 @@
 
 ### People {#peopledb}
 
-- **Nome**: People.{Environment}
+- **Name**: People.{Environment}
 - **Atributos**:
 
 |     Name      |  Type  |
@@ -396,7 +584,7 @@
 
 ### Property {#propertydb}
 
-- **Nome**: Property.{Environment}
+- **Name**: Property.{Environment}
 - **Atributos**
 
 |   Name    |  Type  |
@@ -410,7 +598,7 @@
 
 ### user-policies {#user-policiesdb}
 
-- **Nome**: {Project}-users-policies.{Environment}
+- **Name**: {Project}-users-policies.{Environment}
 - **Atributos**:
 
 |   Name   |  Type  |
@@ -419,7 +607,7 @@
 
 ### user-roles {#user-rolesdb}
 
-- **Nome**: {Project}-users-roles.\${Environment}
+- **Name**: {Project}-users-roles.\${Environment}
 - **Atributos**:
 
 |   Name   |  Type  |
@@ -428,7 +616,7 @@
 
 #### users {#usersdb}
 
-- **Nome**: {Project}-users-{Environment}
+- **Name**: {Project}-users-{Environment}
 - **Atributos**
 
 |    Name    |  Type  |
@@ -447,7 +635,7 @@
 
 ### Upload {#uploaddb}
 
-- **Nome**: Upload.{Environment}
+- **Name**: Upload.{Environment}
 - **Atributos**:
 
 |   Name   |  Type  |
@@ -459,7 +647,7 @@
 
 ### SimulationsReport {#simulationsReportdb}
 
-- **Nome**: SimulationsReport.{Environment}
+- **Name**: SimulationsReport.{Environment}
 - **Atributos**:
 
 |    Name    |  Type  |
@@ -471,7 +659,7 @@
 
 #### ContractReport {#contractReportdb}
 
-- **Nome**: ContractsReport.{Environment}
+- **Name**: ContractsReport.{Environment}
 - **Atributos**
 
 |      Name      |   Type   |
@@ -488,7 +676,7 @@
 
 ### StatusContract {#statuscontractdb}
 
-- **Nome**: StatusContract.{Environment}
+- **Name**: StatusContract.{Environment}
 - **Atributos**
 
 |  Name  |  Type  |
@@ -501,7 +689,7 @@
 
 ### ContractContactType {#contractContactTypedb}
 
-- **Nome**: ContractContactType.{Environment}
+- **Name**: ContractContactType.{Environment}
 - **Atributos**
 
 | Name  |  Type  |
@@ -512,7 +700,7 @@
 
 ### ContractComment {#contractCommentdb}
 
-- **Nome**: ContractComment.{Environment}
+- **Name**: ContractComment.{Environment}
 - **Atributos**
 
 |    Name    |  Type  |
@@ -526,7 +714,7 @@
 
 #### AuditLog {#auditLogodb}
 
-- **Nome**: {Project}-AuditLog-{Environment}
+- **Name**: {Project}-AuditLog-{Environment}
 - **Atributos**
 
 |   Name    |  Type  |
@@ -569,21 +757,21 @@
 
 ### PreRegister
 
-- **Nome**: PreLogin-{Environment}
+- **Name**: PreLogin-{Environment}
 - **Descripion**: Valida os campos enviados para o cadastro
 - **Handler**: preregister_insert
 - **tables**: PreRegister, People
 
 ### PreLogin
 
-- **Nome**: PreLogin-{Environment}
+- **Name**: PreLogin-{Environment}
 - **Descripion**: Valida os campos enviados para o login
 - **Handler**: prelogin_insert
 - **tables**: PreRegister
 
 ### PosRegister
 
-- **Nome**: PosRegister-{Environment}
+- **Name**: PosRegister-{Environment}
 - **Descripion**: Integra os dados referentes ao usuário como convidado
 - **Handler**: posregister_insert
 - **tables**: PreRegister
@@ -591,7 +779,7 @@
 
 ### PosLogin
 
-- **Nome**: PosLogin-{Environment}
+- **Name**: PosLogin-{Environment}
 - **Descripion**: Integra os dados referentes ao usuário como convidado
 - **Handler**: poslogin_insert
 - **tables**: PreRegister
@@ -987,7 +1175,7 @@
 
 ### CepCache {#cep-cachedb}
 
-- **Nome**: CepCache.{Environment}
+- **Name**: CepCache.{Environment}
 - **Atributos**
 
 | Name |  Type  |
@@ -996,7 +1184,7 @@
 
 ### PreRegister {#preRegisterdb}
 
-- **Nome**: PreRegister.{Environment}
+- **Name**: PreRegister.{Environment}
 - **Atributos**
 
 |    Name    |  Type  |
@@ -1010,7 +1198,7 @@
 
 ### User {#Userdb}
 
-- **Nome**: User.{Environment}
+- **Name**: User.{Environment}
 - **Atributos**
 
 |     Name      |  Type  |
@@ -1022,7 +1210,7 @@
 
 ### Company {#companydb}
 
-- **Nome**: Company.{Environment}
+- **Name**: Company.{Environment}
 - **Atributos**
 
 | Name |  Type  |
@@ -1031,7 +1219,7 @@
 
 ### Process {#processdb}
 
-- **Nome**: Process.{Environment}
+- **Name**: Process.{Environment}
 - **Atributos**
 
 |     Name      |  Type  |
@@ -1044,7 +1232,7 @@
 
 ### Proposal {#proposaldb}
 
-- **Nome**: Proposal.{Environment}
+- **Name**: Proposal.{Environment}
 - **Atributos**
 
 |    Name    |  Type  |
@@ -1054,7 +1242,7 @@
 
 ### Schedules {#schedulesdb}
 
-- **Nome**: Schedules.{Environment}
+- **Name**: Schedules.{Environment}
 - **Atributos**
 
 |    Name    |  Type  |
@@ -1064,7 +1252,7 @@
 
 ### Registries {#registriesdb}
 
-- **Nome**: Registries.{Environment}
+- **Name**: Registries.{Environment}
 - **Atributos**
 
 | Name |  Type  |
@@ -1073,7 +1261,7 @@
 
 ### SimulationsSelection {#simulationsSelectiondb}
 
-- **Nome**: Registries.{Environment}
+- **Name**: Registries.{Environment}
 - **Atributos**
 
 |     Name     |  Type  |
@@ -1082,7 +1270,7 @@
 
 ### Tracking {#trackingdb}
 
-- **Nome**: Registries.{Environment}
+- **Name**: Registries.{Environment}
 - **Atributos**
 
 |   Name    |  Type  |
