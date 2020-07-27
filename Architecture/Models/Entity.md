@@ -5,60 +5,60 @@ O `schema` pensado para a model Entity tem como objetivo torná-lo agnóstico à
 
 ```json
 {
-  email: String,
-  type: String,
-  accounts: [{}],
-  phone: "",
-  relations: [
+  "email": "String",
+  "type": "String",
+  "accounts": [{}],
+  "phone": "String",
+  "relations": [
       {
-        type: '',
-        value: '',
+        "type": "String",
+        "value": "String",
       }
   ],
-  address: {
-    cep: String,
-    city: String,
-    complement: String,
-    neighborhood: String,
-    number: String,
-    state: String,
-    streetAddress: String,
+  "address": {
+    "cep": "String",
+    "city": "String",
+    "complement": "String",
+    "neighborhood": "String",
+    "number": "String",
+    "state": "String",
+    "streetAddress": "String",
   },
-  income: [
+  "income": [
     {
-      type: String,
-      source: String, // assalariado, renda extra, aluguel ...
-      activity: String,
-      value: Number,
+      "type": "String",
+      "source": "String",
+      "activity": "String",
+      "value": "Number",
     },
   ],
-  files: [
+  "files": [
     {
-      category: String, // documents, others
-      type: String, // certicate, selfie, proofIncome
-      filename: String,
-      id: String,
-      size: Number,
-      date: String,
+      "category": "String",
+      "type": "String",
+      "filename": "String",
+      "id": "String",
+      "size": "Number",
+      "date": "String",
     },
   ],
-  name: String, // em caso de pessoa jurídica, usar razão social
-  nickname: String, // em caso de pessoa jurídica, usar nome fantasia
-  idWallCompanies: [
+  "name": "String",
+  "nickname": "String",
+  "idWallCompanies": [
     {
-      cnpj: String,
-      name: String,
-      relationship: String,
+      "cnpj": "String",
+      "name": "String",
+      "relationship": "String",
     },
-  ], // idwall
-  documentNumber: String,
-  registry: [], // firma reconhecida
-  about: {
-    educationLevel: String,
-    maritalStatus: String,
-    birthDate: String,
-    hasChild: Boolean,
-    hasSiblings: Boolean
+  ],
+  "documentNumber": "String",
+  "registry": [],
+  "about": {
+    "educationLevel": "String",
+    "maritalStatus": "String",
+    "birthDate": "String",
+    "hasChild": "Boolean",
+    "hasSiblings": "Boolean"
   }
 };
 ```
