@@ -31,3 +31,9 @@ We should mark any important resource like cognito, s3, dynamodb tables with `De
 
 Source: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html
 
+#### Testing DeletionPolicy
+
+Here are two CloudFormation templates to test DeletionPolicy:
+* `cfn-deletion-policy-default.yml`: to check what happens without DeletionPolicy
+* `cfn-deletion-policy-retain.yml`: to check what happens with DeletionPolicy
+
