@@ -1,0 +1,35 @@
+---
+AWSTemplateFormatVersion: "2010-09-09"
+
+Description: >
+  Creates one stack to test without DeletionPolicy
+
+Parameters:
+
+  Projeto:
+    Type: String
+    Default: "checkNoDeletionPolicyAndDeleteMe"
+
+  Ambiente:
+    Type: String
+    AllowedValues: ["canary"]
+
+Resources:
+  UserPool:
+    Type: AWS::Cognito::UserPool
+    Properties:
+      UserPoolName: !Sub "${Projeto} - ${Ambiente}"
+      UsernameAttributes:
+        - email
+      Schema:
+        - Name: name
+          Mutable: False
+          Required: True
+        - Name: phone_number
+          Required: True
+      AutoVerifiedAttributes:
+        - email
+      UserPoolTags:
+        Projeto: !Ref Projeto
+        Ambiente: !Ref Ambiente
+
