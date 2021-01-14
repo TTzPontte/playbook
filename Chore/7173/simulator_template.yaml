@@ -1,0 +1,27 @@
+Resources:
+  ElasticsearchDomain:
+    Type: 'AWS::Elasticsearch::Domain'
+    Properties:
+      DomainName: !Sub "simulations-${Ambiente}"
+      ElasticsearchClusterConfig:
+        InstanceType: !If [Prod, 'r5.large.elasticsearch', 't2.small.elasticsearch']
+        InstanceCount: 1
+      ElasticsearchVersion: "6.7"
+      EBSOptions:
+        EBSEnabled: true
+        Iops: 0
+        VolumeSize: 10
+        VolumeType: 'gp2'
+      AccessPolicies:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: 'Allow'
+            Principal:
+              AWS: '*'
+            Action: 'es:*'
+            Resource: '*'
+            Condition:
+              StringEquals:
+                "aws:PrincipalOrgID": 'o-825yyfxmjk'
+      AdvancedOptions:
+        rest.action.multi.allow_explicit_index: 'true'
