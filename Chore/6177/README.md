@@ -37,3 +37,4 @@ Here are two CloudFormation templates to test DeletionPolicy:
 * `cfn-deletion-policy-default.yml`: to check what happens without DeletionPolicy
 * `cfn-deletion-policy-retain.yml`: to check what happens with DeletionPolicy
 
+[Back to the index](..)

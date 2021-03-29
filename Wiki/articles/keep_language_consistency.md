@@ -9,3 +9,5 @@ We are using `English` in the entire project, so we need to maintain the consist
 - Code Review
 - Codebase
 - Playbook
+
+[Back to the index](..)

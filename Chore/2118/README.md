@@ -65,3 +65,5 @@ items.forEach((item) => {
 - https://theburningmonk.com/2019/03/dynamodb-ttl-as-an-ad-hoc-scheduling-mechanism/
 - https://theburningmonk.com/2019/05/using-cloudwatch-and-lambda-to-implement-ad-hoc-scheduling/
 - https://github.com/theburningmonk/dynamodb-ttl-as-scheduling
+
+[Back to the index](..)
