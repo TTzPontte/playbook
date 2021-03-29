@@ -11,3 +11,7 @@ This repository will follow the nomenclature of a `folder` containing the `id` o
     │   |    ├── README.md # description
     |   |    ├── example.js # code sample
     └── ...
+
+Also we must add a link to the readme article of each chore at the WIKI index.
+
+[Back to the index](..)

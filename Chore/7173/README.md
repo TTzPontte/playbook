@@ -16,3 +16,5 @@ Configure [AccessPolicies](https://docs.aws.amazon.com/pt_br/AWSCloudFormation/l
   * All lambda will work as they are part of our org;
 
 Configure [CognitoOptions](https://docs.aws.amazon.com/pt_br/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-cognitooptions) of Kibnan (at ElasticSearch SAM definition) to our Torre Cognito Users.
+
+[Back to the index](..)

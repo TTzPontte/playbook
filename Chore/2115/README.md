@@ -77,3 +77,5 @@ const params = {
 1. Could we use a temporary password instead of a link?
 
 2. Will we use a `cognito` or `AWS SES` to send e-mails? (because of the limits)
+
+[Back to the index](..)

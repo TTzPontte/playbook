@@ -57,3 +57,5 @@ class Example extends React.Component {
 ### References
 
 - https://github.com/gregnb/react-to-print#readme
+
+[Back to the index](..)

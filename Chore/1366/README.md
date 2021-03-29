@@ -107,3 +107,5 @@ We're using `verify` function of `jsonwebtoken` witch accepts two parameters the
 - https://auth0.com/learn/json-web-tokens/
 - https://github.com/auth0/node-jsonwebtoken
 - https://github.com/chronosis/uuid-apikey
+
+[Back to the index](..)
