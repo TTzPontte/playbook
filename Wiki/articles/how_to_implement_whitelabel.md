@@ -30,14 +30,29 @@ Clone the `portal-frontend` repo and create a new branch named with the white la
 
 ```
 git@github.com:pontte/portal-frontend.git
+git checkout staging
+git pull origin staging
 git checkout -b feat/new-white-label
 ```
 
 Get the latest updates from the Design System Stargate UI with the following command:
 
 `npm i @pontte/stargate-ui-{styles,core,icons}@latest -S`
- 
-Inside `portal-frontend` you can find a file from `site` called `partners.js`
+
+Repeat the process and clone the `site` repo and create a new branch named with the white label you want to add.
+
+```
+git@github.com:pontte/site.git
+git checkout staging
+git pull origin staging
+git checkout -b feat/new-white-label
+```
+
+Get the latest updates from the Design System Stargate UI with the following command:
+
+`npm i @pontte/stargate-ui-{styles,core,icons}@latest -S`
+
+Inside `portal-frontend` you can find the submodule `site` and there an helper file called `partners.js`
 Add the partner name inside the array on new partners:
 
 ```javascript
