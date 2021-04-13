@@ -1,0 +1,316 @@
+{
+  "data": {
+    "pipes": [
+      {
+        "id": "301582385",
+        "name": "Esteira HE  (TESTE DEV)",
+        "start_form_fields": [
+          {
+            "id": "id_card",
+            "internal_id": "324006363",
+            "type": "id",
+            "required": false,
+            "editable": false,
+            "description": ""
+          },
+          {
+            "id": "origem",
+            "internal_id": "324006364",
+            "type": "select",
+            "required": true,
+            "editable": true,
+            "description": ""
+          },
+          {
+            "id": "id_torre",
+            "internal_id": "324006368",
+            "type": "short_text",
+            "required": false,
+            "editable": true,
+            "description": ""
+          },
+          {
+            "id": "respons_vel_cx",
+            "internal_id": "324006369",
+            "type": "assignee_select",
+            "required": false,
+            "editable": true,
+            "description": ""
+          },
+          {
+            "id": "nome_da_empresa_parceira",
+            "internal_id": "324006399",
+            "type": "short_text",
+            "required": false,
+            "editable": true,
+            "description": ""
+          },
+          {
+            "id": "what_s_the_customer_s_email",
+            "internal_id": "324006401",
+            "type": "email",
+            "required": false,
+            "editable": true,
+            "description": ""
+          },
+          {
+            "id": "nome_do_parceiro",
+            "internal_id": "324006408",
+            "type": "short_text",
+            "required": false,
+            "editable": true,
+            "description": ""
+          },
+          {
+            "id": "opera_o",
+            "internal_id": "324006422",
+            "type": "statement",
+            "required": false,
+            "editable": false,
+            "description": ""
+          },
+          {
+            "id": "valor_mensal_total_do_contrato",
+            "internal_id": "324006423",
+            "type": "currency",
+            "required": true,
+            "editable": true,
+            "description": "Em reais (R$)"
+          },
+          {
+            "id": "cliente",
+            "internal_id": "324006428",
+            "type": "statement",
+            "required": false,
+            "editable": false,
+            "description": ""
+          },
+          {
+            "id": "o_empr_stimo_ser_em_nome_de",
+            "internal_id": "324006429",
+            "type": "radio_horizontal",
+            "required": true,
+            "editable": true,
+            "description": ""
+          },
+          {
+            "id": "nome_do_cliente",
+            "internal_id": "324006430",
+            "type": "short_text",
+            "required": true,
+            "editable": true,
+            "description": ""
+          },
+          {
+            "id": "s_cio_de_empresa",
+            "internal_id": "324006431",
+            "type": "checklist_horizontal",
+            "required": false,
+            "editable": true,
+            "description": ""
+          },
+          {
+            "id": "cnpj_do_cliente",
+            "internal_id": "324006432",
+            "type": "cnpj",
+            "required": false,
+            "editable": true,
+            "description": ""
+          },
+          {
+            "id": "cpf_do_cliente",
+            "internal_id": "324006433",
+            "type": "cpf",
+            "required": true,
+            "editable": true,
+            "description": ""
+          },
+          {
+            "id": "e_mail_do_cliente",
+            "internal_id": "324006438",
+            "type": "email",
+            "required": true,
+            "editable": true,
+            "description": ""
+          },
+          {
+            "id": "renda_cliente",
+            "internal_id": "324006439",
+            "type": "currency",
+            "required": false,
+            "editable": true,
+            "description": ""
+          },
+          {
+            "id": "telefone_cliente",
+            "internal_id": "324006440",
+            "type": "phone",
+            "required": false,
+            "editable": true,
+            "description": ""
+          },
+          {
+            "id": "nome_pessoa_2_da_opera_o",
+            "internal_id": "324006443",
+            "type": "short_text",
+            "required": false,
+            "editable": true,
+            "description": ""
+          },
+          {
+            "id": "cpf_pessoa_2",
+            "internal_id": "324006444",
+            "type": "cpf",
+            "required": false,
+            "editable": true,
+            "description": ""
+          },
+          {
+            "id": "e_mail_pessoa_2",
+            "internal_id": "324006445",
+            "type": "email",
+            "required": false,
+            "editable": true,
+            "description": ""
+          },
+          {
+            "id": "grau_de_parentesco_pessoa_2",
+            "internal_id": "324006446",
+            "type": "select",
+            "required": false,
+            "editable": true,
+            "description": ""
+          },
+          {
+            "id": "renda_pessoa_2",
+            "internal_id": "324006447",
+            "type": "currency",
+            "required": false,
+            "editable": true,
+            "description": ""
+          },
+          {
+            "id": "im_vel",
+            "internal_id": "324006448",
+            "type": "statement",
+            "required": false,
+            "editable": false,
+            "description": ""
+          },
+          {
+            "id": "valor_do_im_vel",
+            "internal_id": "324006449",
+            "type": "currency",
+            "required": true,
+            "editable": true,
+            "description": "Em reais (R$)"
+          },
+          {
+            "id": "cep_do_im_vel",
+            "internal_id": "324006450",
+            "type": "short_text",
+            "required": true,
+            "editable": true,
+            "description": ""
+          },
+          {
+            "id": "cidade_do_im_vel",
+            "internal_id": "324006451",
+            "type": "short_text",
+            "required": false,
+            "editable": true,
+            "description": ""
+          },
+          {
+            "id": "endere_o_do_im_vel",
+            "internal_id": "324006452",
+            "type": "short_text",
+            "required": false,
+            "editable": true,
+            "description": ""
+          },
+          {
+            "id": "n_mero_do_im_vel",
+            "internal_id": "324006453",
+            "type": "number",
+            "required": false,
+            "editable": true,
+            "description": ""
+          },
+          {
+            "id": "m_s_sem_pagar",
+            "internal_id": "324006458",
+            "type": "select",
+            "required": false,
+            "editable": true,
+            "description": ""
+          },
+          {
+            "id": "contrato_1",
+            "internal_id": "324006460",
+            "type": "statement",
+            "required": false,
+            "editable": false,
+            "description": ""
+          },
+          {
+            "id": "tabela_amortiza_o",
+            "internal_id": "324006468",
+            "type": "select",
+            "required": false,
+            "editable": true,
+            "description": ""
+          },
+          {
+            "id": "n_mero_de_parcelas",
+            "internal_id": "324006469",
+            "type": "number",
+            "required": false,
+            "editable": true,
+            "description": "Número de parcelas para pagamento do empréstimo"
+          },
+          {
+            "id": "car_ncia",
+            "internal_id": "324006470",
+            "type": "select",
+            "required": false,
+            "editable": true,
+            "description": ""
+          },
+          {
+            "id": "attachment_t_tulo",
+            "internal_id": "324006471",
+            "type": "attachment",
+            "required": false,
+            "editable": true,
+            "description": ""
+          },
+          {
+            "id": "documentos_im_vel",
+            "internal_id": "324006479",
+            "type": "attachment",
+            "required": false,
+            "editable": true,
+            "description": ""
+          },
+          {
+            "id": "documentos_financeiros",
+            "internal_id": "324006482",
+            "type": "attachment",
+            "required": false,
+            "editable": true,
+            "description": ""
+          },
+          {
+            "id": "informa_es_importantes_e_detalhes_da_opera_o",
+            "internal_id": "324006484",
+            "type": "long_text",
+            "required": false,
+            "editable": true,
+            "description": ""
+          }
+        ]
+      }
+    ]
+  }
+}
