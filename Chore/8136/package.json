@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "scripts": {
+    "get:startFormFields": "node ./getStartFormFields.js",
+    "list:cards": "node ./showCard.js",
+    "show:card": "node ./showCard.js",
+    "create:card": "node ./createCard.js",
+    "update:card": "node ./updateCard.js",
+    "delete:card": "node ./deleteCard.js"
+  },
+  "dependencies": {
+    "date-fns": "^2.20.3",
+    "dotenv": "^8.2.0",
+    "request": "^2.88.2"
+  }
+}
