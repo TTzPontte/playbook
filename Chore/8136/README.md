@@ -49,6 +49,11 @@ yarn delete:card #delete a card
 
 # List Fields Start Form
 
+### To actually start, we need to get the fields from the initial form
+- It is done as follows
+
+<br>
+
 ```js
 require('dotenv/config');
 const { GraphQLClient, gql } = require('graphql-request');
@@ -83,6 +88,14 @@ const main = async () => {
 
 main().catch(err => console.log(err))
 ```
+
+<br>
+
+# CRUD
+- After obtaining the form fields, we can make a crud
+- Below I demonstrate how to perform a CRUD operation
+
+<br>
 
 # List cards
 
@@ -139,6 +152,8 @@ const main = async () => {
 main().catch((err) => console.log(err));
 ```
 
+<br>
+
 # Show card
 
 ```js
@@ -183,7 +198,9 @@ const main = async () => {
 main().catch((err) => console.log(err));
 ```
 
-# Creating a card
+<br>
+
+# Create a card
 
 ```js
 require('dotenv/config');
@@ -230,7 +247,12 @@ const main = async () => {
 main().catch((err) => console.log(err));
 ```
 
+<br>
+
 # Update a Card
+- It is only possible to update a field if the `editable` property is true.
+
+<br>
 
 ```js
 require('dotenv/config');
@@ -269,6 +291,8 @@ const main = async () => {
 
 main().catch((err) => console.log(err));
 ```
+
+<br>
 
 # Delete a Card
 
