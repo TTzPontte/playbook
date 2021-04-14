@@ -27,6 +27,24 @@ PIPEFY_TOKEN=<PIPEFY-TOKEN-HERE>
 PIPE_ID=<PIPE-ID-HERE>
 ```
 
+### To execute
+
+ - Commands
+
+```bash
+yarn get:startFormFields #list start form fields
+
+yarn list:cards #list all cards
+
+yarn show:card #show a card
+
+yarn create:card #create a card
+
+yarn update:card #update a card
+
+yarn delete:card #delete a card
+```
+
 <br><br>
 
 # List Fields Start Form
