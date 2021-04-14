@@ -25,7 +25,7 @@ const main = async () => {
     }
   `
 
-  const response = await graphQLClient.request(query, { pipeId: process.env.PIPEID })
+  const response = await graphQLClient.request(query, { pipeId: process.env.PIPE_ID })
   console.log(JSON.stringify(response))
 }
 

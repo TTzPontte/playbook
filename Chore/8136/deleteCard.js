@@ -1,22 +1,27 @@
 require('dotenv/config');
-const request = require('request');
+const { GraphQLClient, gql } = require('graphql-request');
 
-const data = {
-  cardId: 415855350,
+const main = async () => {
+  const endpoint = 'https://app.pipefy.com/queries';
+
+  const graphQLClient = new GraphQLClient(endpoint);
+
+  graphQLClient.setHeader('Content-Type', 'application/json')
+  graphQLClient.setHeader('Authorization', `Bearer ${process.env.PIPEFY_TOKEN}`)
+
+  const mutation = gql`
+    mutation DeleteCard($cardId: ID!) {
+      deleteCard(input: {
+        id: $cardId
+      })
+      { 
+        success
+      }
+    }
+  `
+
+  const response = await graphQLClient.request(mutation, { cardId: 416543002 });
+  console.log(JSON.stringify(response));
 }
 
-const payload = `{ \"query\": \"mutation{ deleteCard(input: {id: ${data.cardId}}) { success } }\" }`
-
-request({
-  method: 'POST',
-  url: 'https://app.pipefy.com/queries',
-  headers: {
-    'Content-Type': 'application/json',
-    'Authorization': `Bearer ${process.env.PIPEFY_TOKEN}`
-  },
-  body: payload
-}, function (error, response, body) {
-  console.log('Status:', response.statusCode);
-  // console.log('Headers:', JSON.stringify(response.headers));
-  console.log('Response:', body);
-});
+main().catch((err) => console.log(err));

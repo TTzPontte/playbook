@@ -1,22 +1,50 @@
 require('dotenv/config');
-const request = require('request');
+const { GraphQLClient, gql } = require('graphql-request');
 
-const data = {
-  pipeId: 301601916
+const main = async () => {
+  const endpoint = 'https://app.pipefy.com/queries';
+
+  const graphQLClient = new GraphQLClient(endpoint);
+
+  graphQLClient.setHeader('Content-Type', 'application/json')
+  graphQLClient.setHeader('Authorization', `Bearer ${process.env.PIPEFY_TOKEN}`)
+
+  const query = gql`
+    query ListCards($pipeId: ID!) {
+      cards(pipe_id: $pipeId) {
+        edges {
+          node {
+            id
+            title
+            done
+            due_date
+            url
+            labels { name }
+            assignees { id }
+            comments { text }
+            current_phase { name }
+            fields { 
+              name
+              value
+              field {
+                id
+                type
+                description
+              }
+            }
+            phases_history {
+              phase { name }
+              firstTimeIn
+              lastTimeOut
+            }
+          }
+        }
+      }
+    }
+  `
+
+  const response = await graphQLClient.request(query, { pipeId: process.env.PIPE_ID })
+  console.log(JSON.stringify(response))
 }
 
-const payload = `{ \"query\": \"{ cards(pipe_id: ${data.pipeId}) { edges { node { id title assignees { id } comments { text } comments_count current_phase { name } done due_date fields { name value } labels { name } phases_history { phase { name } firstTimeIn lastTimeOut } url } } } }\"}`
-
-request({
-  method: 'POST',
-  url: 'https://app.pipefy.com/queries',
-  headers: {
-    'Content-Type': 'application/json',
-    'Authorization': `Bearer ${process.env.PIPEFY_TOKEN}`
-  },
-  body: payload
-}, function (error, response, body) {
-  console.log('Status:', response.statusCode);
-  // console.log('Headers:', JSON.stringify(response.headers));
-  console.log('Response:', body);
-});
+main().catch((err) => console.log(err));
