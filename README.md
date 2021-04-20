@@ -19,3 +19,4 @@ This documents is maintained by the developers.
 - [Isolate user base from orchestration](https://github.com/pontte/playbook/blob/master/Chore/6177/README.md)
 - [ElasticSearch auth](https://github.com/pontte/playbook/blob/master/Chore/7173/README.md)
 - [Contribute](https://github.com/pontte/playbook/blob/master/Wiki/articles/how_to_contribute.md)
+- [Improve Performance with Next.js](https://github.com/pontte/playbook/blob/master/Chore/2475-8218/improve-performance-nextjs.md)
