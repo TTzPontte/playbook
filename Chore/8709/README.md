@@ -1,5 +1,7 @@
 # Receiv Customer Update
 
+This document show Level 1 and 2 of [C4 Model](https://c4model.com/)
+
 ## Current Architecture
 
 ![Image](http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuGfAJKxDB5EmqRLJ2CZFAob9jGBIHIKbYJaAZW6UoDAEKIL5-NcPoLOAplu-FgxE8M053gbvAK1p0000)
@@ -9,7 +11,7 @@ We will keep this achitecture for a while, probably four or five iterations unti
 In current state, Receiv feeds its own data pooling from Porttal and AZtronic [Collect API](https://dev.aztronic.com.br/AZ/APICollect/Help/Api/).
 
 
-## Integration V1 (DONE)
+## Integration V1.1 (DONE)
 
 Receiv, pulls JSON like `[{ entity, contracts }]` from Portal.
 
@@ -23,7 +25,7 @@ Receiv, pulls JSON like `[{ entity, contracts }]` from Portal.
 
 
 
-## Integration V2
+## Integration V1.2
 
 We will add another end point to our API that makes update of entity data.
 
@@ -56,7 +58,7 @@ Expected data to update entity:
 }
 ```
 
-## Integration V3
+## Integration V1.3
 
 Add event stream listener to update user at AZtronic using [Collect API](https://dev.aztronic.com.br/AZ/APICollect/Help/Api/POST-api-cliente-SetCliente) every time Entity.{env} changes.
 
@@ -68,6 +70,6 @@ Add event stream listener to update user at AZtronic using [Collect API](https:/
 
 ![Image](http://www.plantuml.com/plantuml/svg/RP512i8m44NtESLSe5UG5gdYGYZgghkO31Xe9wMT2bMykp5JQ8IiEhpV_sS-AIVM8yzzfupl1qz831Sqw9xLCC1R0PZEpnQgvXHcyXPN-OXye7zK4pjU6itc4QIFIYBFpbOl7Zqv8xbYZBmL_dClzNLrojBsjbgSKbQplki9OU-9Hsrusf1iLYfS2KMnozwJOV7Vl5Vg9NFKjjMfagR8Dw9ijmoKWBHhYMJ3atm1)
 
-## Integration Vx
+## Integration V2
 
 Rewriting anything to conform with OpenBanking
