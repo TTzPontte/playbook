@@ -1,0 +1,165 @@
+
+{
+  "externalContractFees": [
+      {
+        "feeType": "warranty_analysis",
+        "amount": 10500.0,
+        "amountType": "absolute"
+      }],
+  "relatedParties": [],
+  "borrower": {
+    "fullName": "MARICELIO SOARES FELINTO",
+    "tradingName": "MARICELIO SOARES FELINTO LTDA",
+    "email": "mo@hotmail.com",
+    "roleType": "coBorrower",
+    "personType": "natural",
+    "individualDocumentNumber": "05521723404",
+    "issuerInstitution": "SSP/PR",
+    "documentIdentificationNumber": " 529403500",
+    "motherName": "MARICELIO MOM",
+    "birthDate": "1990-10-31",
+    "profession": "DIRETOR DE TRANSPORTADORA",
+    "propertySystem": "",
+    "spouse": "",
+    "nationality": "BRASILEIRA",
+    "maritalStatus": "totalCommunion",
+    "isPep": false,
+    "addressStreet": "RUA PADRE SAB�I",
+    "addressCountry": "BR",
+    "addressState": "SP",
+    "addressCity": "S�o Paulo",
+    "addressNeighborhood": "Bairro",
+    "addressNumber": "121",
+    "addressPostalCode": "01415001",
+    "addressComplement": "apto 15",
+    "phone": "05516991722315",
+    "cnaeCode": "1234",
+    "companyDocumentNumber": "",
+    "companyStatute": "",
+    "companyRepresentatives": "",
+    "companyType": "",
+    "foundationDate": "2011-01-01",
+    "weddingCertificate": "",
+    "documentIdentification":"",
+    "proofOfResidence":""
+  },
+    "destinationAccounts": [
+      {
+        "accountBranch": "1234",
+        "accountDigit": "5",
+        "accountNumber": "019302",
+        "documentNumber": "03154443479",
+        "financialInstitutionsCodeNumber": "341",
+        "name": "MARICELIO SOARES FELINTO"
+      },
+      {
+        "accountBranch": "1221",
+        "accountDigit": "1",
+        "accountNumber": "123123441",
+        "documentNumber": "32910491000134",
+        "financialInstitutionsCodeNumber": "104",
+        "name": "Cart�rio Fidelis Delfino Palaria"
+      },
+      {
+        "accountBranch": "0101",
+        "accountDigit": "2",
+        "accountNumber": "11611",
+        "documentNumber": "03154441000143",
+        "financialInstitutionsCodeNumber": "033",
+        "name": "HE SOLUTIONS"
+      }
+    ],
+  "realEstates":[{
+                   "addressCity": "Recife",
+                   "addressComplement": "163A",
+                   "addressNeighborhood": "Fund�o",
+                   "addressNumber": "137",
+                   "addressPostalCode": "52221110",
+                   "addressState": "PE",
+                   "addressStreet": "Rua Camapu�",
+                   "addressCountry": "Brazil",
+                   "enrollmentNumber": "54545",
+                   "municipalInscription": "6556",
+                   "insurancePolicyNumber": "6565650",
+                   "warrantyType": "mortgage",
+                   "notaryOfficeCode": 2222,
+                   "description": "O referido im�vel foi havido pelos devedores por for�a do registro R.05, na matr�cula n� 221.400, do Livro N�2de Registro Geral do 18� Oficial de Registro de Im�veis da Comarca de S�o Paulo/SP.",
+                   "incraCode": null,
+                   "estimatedValue": 5265464,
+                   "possessionComposition": [
+                     {
+                       "name": "MARICELIO SOARES FELINTO",
+                       "percentage": 0.8
+                     },
+                     {
+                       "name": "Maria Maricelio Wife",
+                       "percentage": 0.2
+                     }
+                   ]
+                 }],
+  "financial": {
+    "amount": 600000,
+    "creditOperationType": "cci",
+    "issueDate": "2020-12-03",
+    "disbursementDate": "2020-12-04",
+      "fineConfigContractFineRate": 0.02,
+      "fineConfigInterestBase": "calendarDays",
+      "fineConfigMonthlyRate": 0.01,
+      "earlySettlementConfigurationType": "diRate",
+      "earlySettlementConfigurationFixedInterestRate": 0.01,
+    "effectivePrefixedInterestRate": 0,
+      "prefixedInterestRateInterestBase": "calendarDays",
+      "prefixedInterestRateAnnualRate": 0.126825,
+    "principalAmortizationMonthPeriod": 1,
+    "interestGracePeriod": 0,
+    "interestType": "prePrice",
+    "financialIndex": "ipca",
+    "numberOfInstallments": 2,
+    "totalEffectiveCost": 0.145122,
+    "principalGracePeriod": 0
+  },
+  "purchaserDocumentNumber": "32491039000134",
+  "custodianDocumentNumber": "22610500000188",
+  "installments": [
+    {
+      "principalAmortizationAmount": 300000,
+      "dueDate": "2020-12-27",
+      "prefixedInterestAmount": 500,
+      "costTsa": 500,
+      "costMip": 20,
+      "costDfi": 20
+    },
+    {
+      "principalAmortizationAmount": 300000,
+      "dueDate": "2020-12-27",
+      "prefixedInterestAmount": 500,
+      "costTsa": 500,
+      "costMip": 20,
+      "costDfi": 20
+    }
+  ],
+  "disbursementAccount": {
+  "accountBranch": "0001",
+      "accountDigit": "1",
+      "accountNumber": "90348",
+      "documentNumber": "03154443479",
+      "financialInstitutionsCodeNumber": "329",
+      "name": "MARICELIO SOARES FELINTO"
+  },
+  "cciSerialNumber": "202102",
+  "realEstateAnalisysExpenses": 234,
+  "realEstateRegistryExpenses": 10040,
+  "realEstateDueBalance": 1000,
+  "netDebtAmount": 589960,
+  "clientAvailableBalance": 500000,
+  "debts": [],
+  "incomeComposition":[],
+  "attachments":[
+   {
+          "img": "https://url.de.imagem.da.certid�o/j320b4je5nmes"
+        },
+        {
+          "img": "https://url.do.laudo.do.im�vel/jdp230kdml9vc"
+    }
+  ]
+}

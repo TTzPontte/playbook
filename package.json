@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "object-mapper": "^6.2.0"
+  }
+}
