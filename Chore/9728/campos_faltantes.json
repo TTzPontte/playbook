@@ -1,0 +1,113 @@
+{
+    "externalContractFees": [
+        {
+          "feeType": "string",
+          "amount": "float",
+          "amountType": "string"
+        }
+    ],
+    "relatedParties": [
+        {
+            "roleType": "string",
+            "personType": "string",
+            "isPep": "boolean",
+            "phoneCountry": "string",
+            "phoneAreacode": "string"
+        }
+    ],
+    "borrower": {
+        "cnaeCode": "string",
+        "traddingName": "string",
+        "roleType": "string",
+        "personType": "string",
+        "propertySystem": "string",
+        "spouse": "string",
+        "isPep": "boolean",
+        "companyDocumentNumber": "string",
+        "companyStatute": "string",
+        "companyRepresentatives": "array",
+        "companyType": "string",
+        "foundationDate": "string",
+        "weedingCertificate": "string",
+        "proofOfResidence": "string"
+    },
+    "destinationAccount": [
+        {
+            "accountBranch": "string",
+            "accountDigit": "string",
+            "accountNumber": "string",
+            "documentNumber": "string",
+            "financialInstitutionCodeNumber": "string",
+            "name": "string"
+        }
+    ],
+    "realStates": {
+        "addressCity": "string",
+        "addressComplement": "string",
+        "addressNeighborhood": "string",
+        "addressPostalCode": "string",
+        "addressState": "string",
+        "addressStreet": "string",
+        "addressCountry": "string",
+        "enrollmentNumber": "string",
+        "municipalInscription": "string",
+        "insurancePolicyNumber": "string",
+        "warrantyType": "string",
+        "notaryOfficeCode": "string",
+        "description": "string",
+        "incraCode": "string",
+        "estimatedValue": "string",
+        "possessionComposition": [
+            {
+                "name": "string",
+                "percentage": "float"
+            }
+        ]
+    },
+    "financial": {
+        "creditOperationType": "string",
+        "issueDate": "string",
+        "fineConfigMonthlyRate": "float",
+        "earlySettlementConfigurationType": "string",
+        "earlySettlementConfigurationFixedInterestRate": "float",
+        "effectivePrefixedInterestRate": "float",
+        "prefixedInterestRateInterestBase": "string",
+        "prefixedInterestRateAnnualRate": "float",
+        "principalAmortizationMonthPeriodo": "int",
+        "interestGracePeriod": "int",
+        "financialIndex": "string"
+    },
+    "purchaserDocumentNumber": "string",
+    "custodianDocumentNumber": "string",
+    "installments": [
+        {
+            "principalAmortizationAmount": "int",
+            "dueDate": "string",
+            "prefixedInterestAmount": "int",
+            "costTsa": "int",
+            "costMip": "int",
+            "costDfi": "int"  
+        }
+    ],
+    "disbursementAccount": {
+        "accountDigit": "string",
+        "financialInstitutionCodeNumber": "string"
+    },
+    "debts": [
+        {
+            "amount": "int",
+            "description": "string"
+        }
+    ],
+    "incomeComposition": [
+        {
+            "name": "string",
+            "percentage": "float"
+        }
+    ],
+    "attachments": [
+        {
+            "img": "string"
+        }
+    ]
+}

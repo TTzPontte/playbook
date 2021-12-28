@@ -1,0 +1,110 @@
+{
+  "borrower": {
+    "name": "Brunão",
+    "email": "gohoy20636@keagenan.com",
+    "birth_date": "07/12/1990",
+    "filiation": "",
+    "profession": "Designer",
+    "marriage_status": "Solteiro(a)",
+    "marriage_regime": "N/A",
+    "individual_document_number": "382095455",
+    "issuer_institution": "SSP",
+    "document_identification_number": "102.969.550-43",
+    "nationality": "Brasileiro",
+    "phone_number": "+55 11 97427-1235",
+    "address": {
+      "street": "Avenida Paulista",
+      "number": "1001",
+      "complement": "Apto 2300",
+      "neighborhood": "Bela Vista",
+      "city": "São Paulo",
+      "state": "",
+      "postal_code": "08070000"
+    },
+    "disbursement_account": {
+      "name": "Brunão",
+      "document_number": "102.969.550-43",
+      "financial_institution": "Bradesco",
+      "number": "12548756569884554566231212225",
+      "branch": "324354324324324"
+    }
+  },
+  "related_parties": [
+    {
+      "name": "Leandro",
+      "email": "teste@email.com",
+      "birth_date": "11/29/1995",
+      "filiation": "",
+      "profession": "dev",
+      "marriage_status": "Solteiro(a)",
+      "marriage_regime": "",
+      "individual_document_number": "",
+      "issuer_institution": "",
+      "document_identification_number": "314.995.240-99",
+      "nationality": "brasileiro",
+      "phone_number": "+55 11 97638-0011",
+      "address": {
+        "street": "Rua Josefa Fontoura",
+        "number": "100",
+        "complement": "casa",
+        "neighborhood": "jaragua",
+        "city": "São Paulo",
+        "state": "",
+        "postal_code": ""
+      }
+    }
+  ],
+  "financial": {
+    "issue_date": "11 de undefined de 2021",
+    "amount": "1,200,000.00",
+    "disbursement_date": "11/30/2021",
+    "interest_type": "",
+    "number_of_installments": "3000000000000",
+    "principal_amortization_month_period": "",
+    "contract_number": "JKLGJ 65454",
+    "amortization_term": "",
+    "end_date_contractual": "11/26/2021",
+    "expiration_first_installment": "11/30/2021",
+    "expiration_first_installment_full": "11 de undefined de 2021",
+    "iof": "",
+    "monthly_installment_amount": "",
+    "permanent_disability": "",
+    "damage_property": "",
+    "management_rate": "",
+    "total_amount_first_charge": "",
+    "total_effective_cost": "",
+    "registration_opening_rate": "",
+    "deadline": "",
+    "external_contract_fees": {
+      "amount": ""
+    },
+    "prefixed_interest_rate": {
+      "annual_rate": ""
+    },
+    "effective_prefixed_interest_rate": {
+      "annual_rate": ""
+    },
+    "additional_data": {
+      "cci_serial_number": 2021,
+      "total_credit_value": {
+        "real_estate_analisys_expenses": "",
+        "real_estate_registry_expenses": "",
+        "net_debt_amount": "",
+        "real_estate_due_balance": "",
+        "client_available_balance": ""
+      },
+      "income_composition": [
+        {
+          "name": "Miguel",
+          "percentage": ""
+        }
+      ]
+    }
+  },
+  "immobile": {
+    "registration": "",
+    "book_number": "",
+    "general_record": "",
+    "property_registry": "ghfjfghjf45345"
+  }
+}
